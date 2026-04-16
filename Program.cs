@@ -1,5 +1,5 @@
 /*
-manager.cs is the entry point.
+the entry point.
 1. it reads cli arguments
 2. calls the appropriate service.
 */
@@ -9,7 +9,7 @@ using Declutter.Services;
 class Manager
 {
     private static RuleService ruleset = new RuleService();
-    // private static OrganizerService warehouse = new OrganizerService(ruleset);
+    private static OrganizerService warehouse = new OrganizerService(ruleset);
 
     static void Main(string[] args)
     {
@@ -32,9 +32,9 @@ class Manager
             case "help":
                 PrintHelp();
                 break;
-            // case "organize":
-            //     OrganizeManager(args);
-            //     break;
+            case "organize":
+                OrganizeManager(args);
+                break;
             case "rules":
                 RulesManager(args, ruleset);
                 break;
@@ -47,16 +47,16 @@ class Manager
         
     }
 
-    // static void OrganizeManager(string[] args)
-    // {
-    //     if(args.Length < 2)
-    //     {
-    //         Console.WriteLine("You must provide a folder to organize");
-    //         Console.WriteLine("");
-    //         PrintHelp();
-    //     }
-    //     warehouse.Organize(args[1]);
-    // }
+    static void OrganizeManager(string[] args)
+    {
+        if(args.Length < 2)
+        {
+            Console.WriteLine("You must provide a folder to organize");
+            Console.WriteLine("");
+            PrintHelp();
+        }
+        warehouse.Organize(args[1]);
+    }
 
     static void RulesManager(string[] args, RuleService ruleset)
     {
