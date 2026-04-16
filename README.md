@@ -1,5 +1,5 @@
 # Declutter
-C#.net CLI tool to help you organize messy folders
+CLI tool to help you organize messy folders
 
 You decide on the ruleset. Declutter will organize your filed into folders based on your preference. There is no recursion yet.
 
